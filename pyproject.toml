@@ -1,0 +1,139 @@
+[build-system]
+requires = [
+  # sync with setup.py until we discard non-pep-517/518
+  "setuptools>=40.0",
+  "setuptools-scm",
+  "wheel",
+  "poetry>=1.0.5"
+]
+
+[tool.poetry]
+name = "mesa_behaviors"
+version = "0.1.0"
+description = "A framework for developing shareable Mesa Agents, Models and creating extensible Utility functions"
+
+license = "Apache 2.0"
+
+authors = [
+    "Zane Starr <zane@zanestarr.com>"
+]
+
+readme = 'README.md'  # Markdown files are supported
+
+repository = "https://github.com/tokesim/mesa_behaviors"
+homepage = "https://github.com/tokesim/mesa_behaviors"
+
+keywords = ['mesa', 'ABM', 'tokesim', 'simulation','agent-based modeling']
+classifiers = [
+        "Development Status :: 5 - Production/Stable",
+        "Topic :: Simulation :: Agent-Based Modeling",
+        "Intended Audience :: Developers",
+        "Natural Language :: English",
+        "License :: OSI Approved :: MIT License",
+        "Operating System :: OS Independent",
+        "Programming Language :: Python",
+        "Programming Language :: Python :: 3.7",
+        "Programming Language :: Python :: 3.8",
+        "Programming Language :: Python :: 3 :: Only",
+]
+packages = [
+    { include = "mesa_behaviors" }
+]
+include = [
+    "*.txt",
+    "*.md"
+]
+
+[tool.poetry.dev-dependencies]
+
+[tool.towncrier]
+package = "mesa_behaviors"
+package_dir = "mesa_behaviors"
+filename = "doc/en/changelog.rst"
+directory = "changelog/"
+title_format = "mesa_behaviors {version} ({project_date})"
+issue_format = "`#{issue} <https://github.com/tokesim/mesa_behaviors/issues/{issue}>`__"
+template = "changelog/_template.rst"
+
+  [[tool.towncrier.type]]
+  directory = "breaking"
+  name = "Breaking Changes"
+  showcontent = true
+
+  [[tool.towncrier.type]]
+  directory = "deprecation"
+  name = "Deprecations"
+  showcontent = true
+
+  [[tool.towncrier.type]]
+  directory = "feature"
+  name = "Features"
+  showcontent = true
+
+  [[tool.towncrier.type]]
+  directory = "improvement"
+  name = "Improvements"
+  showcontent = true
+
+  [[tool.towncrier.type]]
+  directory = "bugfix"
+  name = "Bug Fixes"
+  showcontent = true
+
+  [[tool.towncrier.type]]
+  directory = "vendor"
+  name = "Vendored Libraries"
+  showcontent = true
+
+  [[tool.towncrier.type]]
+  directory = "doc"
+  name = "Improved Documentation"
+  showcontent = true
+
+  [[tool.towncrier.type]]
+  directory = "trivial"
+  name = "Trivial/Internal Changes"
+  showcontent = true
+
+[tool.black]
+line-length = 100
+target-version = ['py37']
+include = '\.pyi?$'
+exclude = '''
+(
+  /(
+      \.eggs         # exclude a few common directories in the
+    | \.git          # root of the project
+    | \.hg
+    | \.mypy_cache
+    | \.tox
+    | \.venv
+    | _build
+    | buck-out
+    | build
+    | dist
+  )/
+)
+'''
+[tool.isort]
+line_length = 88 
+force_single_line = true
+atomic = true
+include_trailing_comma = true
+lines_after_imports = 2
+lines_between_types = 1
+multi_line_output = 3
+use_parentheses = true
+not_skip = "__init__.py"
+skip_glob = ["*/setup.py"]
+filter_files = true
+
+[tool.semantic_release]
+version_variable = "pyproject.toml:version"
+version_source = "commit"
+commit_subject = "chore: bumping version to v{version}"
+commit_message = ""
+commit_author = "Tokesim <support@tokesim.org>"
+build_command = "poetry build"
+upload_to_release = "false"
+
