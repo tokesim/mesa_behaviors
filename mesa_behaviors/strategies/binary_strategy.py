@@ -1,9 +1,8 @@
-import random
 import math
-
-from uuid import uuid4, UUID
-
+import random
 from typing import Dict, NamedTuple
+from uuid import UUID, uuid4
+
 
 # dictates per sequence of results which action to take
 # should be constrained to 0 or 1

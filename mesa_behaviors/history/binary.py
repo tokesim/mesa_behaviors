@@ -1,5 +1,6 @@
-from mesa_behaviors.history.history import BaseHistory
 from bitarray import bitarray
+
+from mesa_behaviors.history.base_history import BaseHistory
 
 
 class BinaryHistory(BaseHistory[bitarray, int]):

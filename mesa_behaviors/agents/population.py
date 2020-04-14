@@ -1,5 +1,7 @@
-from typing import Sequence, Callable, Dict, TypeVar, Any
-from mesa_behaviors.agents.agents import BaseAgent
+from typing import Any, Callable, Dict, Sequence, TypeVar
+
+from mesa_behaviors.agents.base_agent import BaseAgent
+
 
 # type var F is a type constraint on Agent Features
 F = TypeVar("F")

@@ -1,5 +1,6 @@
 from typing import Dict, NamedTuple
 
+
 # dictates per sequence of results which action to take
 StrategyMap = Dict[int, int]
 

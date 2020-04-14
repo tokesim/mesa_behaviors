@@ -1,8 +1,10 @@
+from abc import ABC
+
 from mesa import Model
 from mesa.time import BaseScheduler
+
 from mesa_behaviors.agents.population import AgentPopulation
-from mesa_behaviors.history.history import BaseHistory
-from abc import ABC
+from mesa_behaviors.history.base_history import BaseHistory
 
 
 class BaseModel(Model, ABC):

@@ -1,10 +1,13 @@
-from typing import Callable, Dict
-from mypy_extensions import TypedDict
 from abc import ABC
-from mesa_behaviors.utility.utility import BaseUtility
-from mesa_behaviors.strategies.binary_strategy import BinaryStrategies
+from typing import Callable, Dict
+
 from bitarray import bitarray
 import bitarray.util as bitarray_util
+from mypy_extensions import TypedDict
+
+from mesa_behaviors.strategies.binary_strategy import BinaryStrategies
+from mesa_behaviors.utility.base_utility import BaseUtility
+
 
 BinaryHistoryFunc = Callable[[], bitarray]
 
@@ -34,7 +37,7 @@ def flat_score(
         if i + window_size >= len(history):
             return scores
 
-        encoded_seq = bitarray_util.ba2int(history[i: window_size + i])
+        encoded_seq = bitarray_util.ba2int(history[i : window_size + i])
         next_state = history[window_size + i]
 
         for uuid, strategy in strategies.items():

@@ -1,7 +1,9 @@
 from abc import ABC, abstractclassmethod, abstractmethod
-from mesa import Agent
-from mesa_behaviors.utility.utility import BaseUtility
 from typing import Any, Generic, TypeVar
+
+from mesa import Agent
+
+from mesa_behaviors.utility.base_utility import BaseUtility
 
 
 # strategy shape
