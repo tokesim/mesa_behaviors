@@ -11,7 +11,7 @@ build-backend = "poetry.masonry.api"
 
 [tool.poetry]
 name = "mesa-behaviors"
-version = "0.0.0"
+version = "0.1.0"
 description = "A framework for developing shareable Mesa Agents, Models and creating extensible Utility functions"
 
 license = "Apache 2.0"
